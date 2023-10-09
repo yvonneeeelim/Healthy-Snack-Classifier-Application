@@ -62,7 +62,6 @@ sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
 # Button to get health insights
 if st.button("Snack It"):
-    # Logic to analyze user input and provide health insights
     # You can add your logic here to calculate and display health insights based on the user input
     st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stress and in need of this snack as comfort food!")
 
