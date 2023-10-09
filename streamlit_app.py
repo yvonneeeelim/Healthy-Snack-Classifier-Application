@@ -27,24 +27,16 @@ st.image(image, caption="Know your snacks!", use_column_width=True)
 
 st.divider()
 
+# Get user input for nutrients
+sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
+fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
+sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
-answer_1 = st.selectbox(
-    '***How will you react if your partner leaves you?***',
-    ('I do not wish to think about it yet', 'I will be sad, devastated'))
-
-
-answer_2 = st.text_area("***Please share how you felt about an argument you had with your partner.***")
-
-
-partner_1 = st.selectbox(
-    '***Does your partner like intimacy?***',
-    ('No, my partner does not like intimacy', 'Yes my partner likes it'))
-
-
-partner_2 = st.radio(
-    "***Does your partner text you repeatedly when you did not reply?***",
-    ["Yes, my partner will text me", "No, not actually"])
-
+# Display the user input
+st.write("### Entered Nutrient Values:")
+st.write(f"Sugar: {sugar} g")
+st.write(f"Fats: {fats} g")
+st.write(f"Sodium: {sodium} mg")
 
 
 with open("our_model.pkl", 'rb') as our_model:
@@ -54,9 +46,8 @@ with open('our_vectorizer.pkl', 'rb') as vect:
     vectorizer = pickle.load(vect)
     
 
-
-if st.button('Generate profiles!'):
-    with st.spinner('Wait for it...'):
+if st.button('Snack-o-meter it!'):
+    with st.spinner('Looking hard for nutrients...'):
         
         user = answer_1 + " " + answer_2
         user_series = pd.Series(user)
