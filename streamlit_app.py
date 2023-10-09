@@ -67,7 +67,9 @@ if st.button("Snack It"):
         st.write("Congratulations! Your snack is healthy.")
     else:
         st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
-        
+    st.success('Done!')
+
+
 # Logic to recommend snacks based on user input (this is just a sample recommendation logic)
 recommended_snacks = []
 if sugar < 200 and fats > 10:
