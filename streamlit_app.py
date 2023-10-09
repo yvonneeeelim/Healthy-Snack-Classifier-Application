@@ -18,14 +18,14 @@ import streamlit as st
 image = Image.open('snacks.jpg')
 
 #displaying the image on streamlit app
-st.image(image, caption="Image by KamranAydinov</a> on Freepik", use_column_width=True)
+st.image(image, use_column_width=True)
 
 # Custom CSS to style the title and subheader
 st.markdown(
     """
     <style>
     .title {
-        font-size: 36px;
+        font-size: 46px;
         font-weight: bold;
         color: #4CAF50;
         text-align: center;
@@ -45,7 +45,13 @@ st.markdown(
 
 # Title and subheader with custom styles
 st.markdown('<p class="title">Snack-O-Meter</p>', unsafe_allow_html=True)
-st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <p class="subheader">Scan, Snack, Stay Healthy!</p>
+    <p class="subheader">Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>
+    """,
+    unsafe_allow_html=True
+)
 
 st.divider()
 
@@ -60,6 +66,22 @@ st.write(f"Sugar: {sugar} g")
 st.write(f"Fats: {fats} g")
 st.write(f"Sodium: {sodium} mg")
 
+# Logic to recommend snacks based on user input (this is just a sample recommendation logic)
+recommended_snacks = []
+if sugar < 200 and fats > 10:
+    recommended_snacks.append("Greek Yogurt")
+if sodium < 20 and fats < 10:
+    recommended_snacks.append("Almonds")
+if sugar < 150:
+    recommended_snacks.append("Apple")
+
+# Display recommended snacks
+st.write("### Recommended Snacks:")
+if recommended_snacks:
+    for snack in recommended_snacks:
+        st.write(f"- {snack}")
+else:
+    st.write("Uh-oh, no recommended snacks. Let us stock up first!")
 
 with open("our_model.pkl", 'rb') as our_model:
     model = pickle.load(our_model)
@@ -81,7 +103,6 @@ if st.button('Snack-o-meter it!'):
         partner_record = vectorizer.transform(partner_series)
         partner_prediction = model.predict(partner_record)
         
-
         
     st.success('Done!')
     
