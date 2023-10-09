@@ -60,20 +60,15 @@ sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
 fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
 sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
-# Display the user input
-st.write("### Nutrient Values:")
-st.write(f"Sugar: {sugar} g")
-st.write(f"Fats: {fats} g")
-st.write(f"Sodium: {sodium} mg")
 
 # Logic to recommend snacks based on user input (this is just a sample recommendation logic)
 recommended_snacks = []
 if sugar < 200 and fats > 10:
-    recommended_snacks.append("Greek Yogurt")
+    recommended_snacks.append("Greek Yogurt", "https://www.fairprice.com.sg/product/farmers-union-greek-style-yoghurt-natural-1kg-155863")
 if sodium < 20 and fats < 10:
-    recommended_snacks.append("Almonds")
+    recommended_snacks.append("Almond Nuts", "https://www.fairprice.com.sg/product/natures-wonders-baked-almond-nuts-70g-11720126")
 if sugar < 150:
-    recommended_snacks.append("Apple")
+    recommended_snacks.append("Granola", "https://www.fairprice.com.sg/product/sweet-home-farm-granola-blueberry-with-flax-454g-13217933")
 
 # Display recommended snacks
 st.write("### Recommended Snacks:")
