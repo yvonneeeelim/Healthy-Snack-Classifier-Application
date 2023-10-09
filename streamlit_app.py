@@ -5,8 +5,6 @@ Spyder Editor
 This is a temporary script file.
 """
 
-
-
 import streamlit as st
 import numpy as np
 import time
@@ -14,16 +12,40 @@ from PIL import Image
 import pickle
 import pandas as pd
 
-
-
-st.title("Snack-O-Meter")
-st.subheader("Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze")
+import streamlit as st
 
 #opening the image
-image = Image.open('Screenshot 2023-10-09 at 23.22.53.png')
+image = Image.open('snacks.jpg')
 
 #displaying the image on streamlit app
-st.image(image, caption="Know your snacks!", use_column_width=True)
+st.image(image, caption="Image by KamranAydinov</a> on Freepik", use_column_width=True)
+
+# Custom CSS to style the title and subheader
+st.markdown(
+    """
+    <style>
+    .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #4CAF50;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .subheader {
+        font-size: 18px;
+        font-style: italic;
+        color: #777;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Title and subheader with custom styles
+st.markdown('<p class="title">Snack-O-Meter</p>', unsafe_allow_html=True)
+st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
 
 st.divider()
 
@@ -33,7 +55,7 @@ fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
 sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
 # Display the user input
-st.write("### Entered Nutrient Values:")
+st.write("### Nutrient Values:")
 st.write(f"Sugar: {sugar} g")
 st.write(f"Fats: {fats} g")
 st.write(f"Sodium: {sodium} mg")
