@@ -60,6 +60,11 @@ sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
 fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
 sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
+# Button to get health insights
+if st.button("Snack It"):
+    # Logic to analyze user input and provide health insights
+    # You can add your logic here to calculate and display health insights based on the user input
+    st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stress and in need of this snack as comfort food!")
 
 # Logic to recommend snacks based on user input (this is just a sample recommendation logic)
 recommended_snacks = []
