@@ -62,8 +62,8 @@ sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
 
 # Button to get health insights
-st.button("Snack It")
-    #st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+#st.button("Snack It")
+#st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
 
 
 # Logic to recommend snacks based on user input (this is just a sample recommendation logic)
