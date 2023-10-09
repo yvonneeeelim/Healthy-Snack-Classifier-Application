@@ -19,7 +19,11 @@ import pandas as pd
 st.title("Snack-O-Meter")
 st.subheader("Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze")
 
-st.image("https://www.google.com/imgres?imgurl=https%3A%2F%2Fdevqacdnstorage.blob.core.windows.net%2Fhaldiramnew%2Fcatalog%2Fcategory%2FSavouries_Banner.jpg&tbnid=-PKlasfXNHWvOM&vet=10CHoQMyinBWoXChMIyKXT7J3pgQMVAAAAAB0AAAAAEBQ..i&imgrefurl=https%3A%2F%2Fhaldiram.com%2F&docid=OOY5KKgCNT2d8M&w=2400&h=1600&itg=1&q=snacks%20images%20cool&ved=0CHoQMyinBWoXChMIyKXT7J3pgQMVAAAAAB0AAAAAEBQ", caption="Understanding you and your partner's attachment style", use_column_width=True)
+#opening the image
+image = Image.open('Screenshot 2023-10-09 at 23.22.53.png')
+
+#displaying the image on streamlit app
+st.image(image, caption="Know your snacks!", use_column_width=True)
 
 st.divider()
 
