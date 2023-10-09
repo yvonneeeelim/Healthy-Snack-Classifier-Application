@@ -17,9 +17,9 @@ import pandas as pd
 
 
 st.title("Snack-O-Meter")
-st.subheader("The application is developed to help you understand you and your partner's attachment style, and provide necessary resources to help you in your relationship.")
+st.subheader("Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze")
 
-st.image("https://clipart-library.com/images/rcnrp8jzi.jpg", caption="Understanding you and your partner's attachment style", use_column_width=True)
+st.image("https://www.google.com/imgres?imgurl=https%3A%2F%2Fdevqacdnstorage.blob.core.windows.net%2Fhaldiramnew%2Fcatalog%2Fcategory%2FSavouries_Banner.jpg&tbnid=-PKlasfXNHWvOM&vet=10CHoQMyinBWoXChMIyKXT7J3pgQMVAAAAAB0AAAAAEBQ..i&imgrefurl=https%3A%2F%2Fhaldiram.com%2F&docid=OOY5KKgCNT2d8M&w=2400&h=1600&itg=1&q=snacks%20images%20cool&ved=0CHoQMyinBWoXChMIyKXT7J3pgQMVAAAAAB0AAAAAEBQ", caption="Understanding you and your partner's attachment style", use_column_width=True)
 
 st.divider()
 
