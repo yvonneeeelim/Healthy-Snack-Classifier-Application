@@ -96,3 +96,24 @@ if uploaded_file is not None:
         print('Total Fat: ' + total_fat_value)
     else:
         print('Total Fat information not found in the image.')
+
+
+    with open("classifier.pkl", 'rb') as our_model:
+    model = pickle.load(our_model)
+
+    data = {'total_fat_g_per_gram_of_serving': [fats],
+            'sugars_g_per_gram_of_serving': [sugar],
+            'sodium_g_per_gram_of_serving': [sodium]}
+    test = pd.DataFrame(data)
+
+    button = st.button('Get my snack details!')
+    # if button is pressed
+    if button:
+        ans=model.predict(test)
+    
+        if ans==0:
+            st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+        else:
+            st.write("Good Job! Your snack is healthy! Keep snacking.")
+    
+        st.success("Done!")
