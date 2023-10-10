@@ -64,8 +64,8 @@ if button:
     ans=model.predict(test)
     
     if ans==0:
-        st.write('Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!')
+        st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
     else:
-    st.write('Good Job! Your snack is healthy! Keep snacking.')
+    st.write("Good Job! Your snack is healthy! Keep snacking.")
     
-    st.success('Done!')
+    st.success("Done!")
