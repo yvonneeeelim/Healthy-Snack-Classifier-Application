@@ -125,7 +125,7 @@ st.divider()
 product_data = pd.read_csv('df_final.csv')
 
 # Get user input for product lookup
-product_name = st.selectbox("Snacks Name:",
+product_name = st.selectbox("Search for Snacks:",
                         ("Beryl's Chocolate Orange Cashew Nuts Cookies",
                          "Julie's Crackers - Butter",
                          "Meiji Hello Panda Biscuits - Milk",
