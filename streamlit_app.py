@@ -74,16 +74,25 @@ if button:
 
 st.divider()
 
-# Get user input for nutrients
-input_image = Image.open(image)
-st.image(input_image)
-reader = easyocr.Reader(['en'])
-result = reader.readtext(np.array(input_image))
+# Get user input for image upload
+uploaded_file = st.file_uploader("Upload an image:", type=["jpg", "jpeg", "png"])
 
-df = pd.DataFrame(result)
-df.columns = ['1', 'Text', '2']
+# Process the uploaded image if it exists
+if uploaded_file is not None:
+    # Open and display the uploaded image
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Uploaded Image", use_column_width=True)
+    reader = easyocr.Reader(['en'])
+    result = reader.readtext(np.array(image))
+    
+    df = pd.DataFrame(result)
+    df.columns = ['1', 'Text', '2']
 
-# Print out the Total Fat
-print('Total Fat:' + df.iloc[df.loc[(df['Text'] == 'Total Fat')].index+1,1:2])
-
-
+    # Extract Total Fat value
+    total_fat_row = df.loc[df['Text'] == 'Total Fat']
+    if not total_fat_row.empty:
+        total_fat_index = total_fat_row.index[0]
+        total_fat_value = df.iloc[total_fat_index + 1, 1]  # Extracting the value after 'Total Fat'
+        print('Total Fat: ' + total_fat_value)
+    else:
+        print('Total Fat information not found in the image.')
