@@ -136,9 +136,9 @@ if product_name:
 
     # Display product information if found
     if not product_info.empty:
-        fats = product_info['Fat(g)'].values[0]
-        sugar = product_info['Sugar(g)'].values[0]
-        sodium = product_info['Sodium(g)'].values[0]
+        fats = product_info['total_fat_g_per_gram_of_serving'].values[0]
+        sugar = product_info['sugars_g_per_gram_of_serving'].values[0]
+        sodium = product_info['sodium_g_per_gram_of_serving)'].values[0]
 
         st.write(f"**Product Name:** {product_name}")
         st.write(f"**Fat:** {fats}g")
