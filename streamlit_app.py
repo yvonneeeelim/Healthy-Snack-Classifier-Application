@@ -53,9 +53,9 @@ sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 with open("classifier.pkl", 'rb') as our_model:
     model = pickle.load(our_model)
 
-data = {‘total_fat_g_per_gram_of_serving’: [fats],
-        ‘sugars_g_per_gram_of_serving’: [sugar],
-        ‘sodium_g_per_gram_of_serving’: [sodium]}
+data = {'total_fat_g_per_gram_of_serving': [fats],
+        'sugars_g_per_gram_of_serving': [sugar],
+        'sodium_g_per_gram_of_serving': [sodium]}
 test = pd.DataFrame(data)
 
 button = st.button('Get my snack deets!')
