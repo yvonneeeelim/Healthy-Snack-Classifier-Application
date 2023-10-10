@@ -61,6 +61,13 @@ test = pd.DataFrame(data)
 button = st.button('Get my snack deets!')
 # if button is pressed
 if button:
-    model.predict(test)
+    ans=model.predict(test)
+    
+    if ans==0:
+        st.write('Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!')
+
+    else:
+        st.write('Good Job! Your snack is healthy! Keep snacking.')
+    
    
     st.success('Done!')
