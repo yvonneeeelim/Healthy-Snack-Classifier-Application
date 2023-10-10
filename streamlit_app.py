@@ -20,20 +20,28 @@ st.markdown(
     """
     <style>
     .title {
-        font-size: 50px;
-        font-size: 46px;
+        font-size: 36px;
         font-weight: bold;
         color: #4CAF50;
         text-align: center;
-@@ -58,8 +58,8 @@
+        margin-bottom: 10px;
+    }
+    .subheader {
+        font-size: 18px;
+        font-style: italic;
+        color: #777;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Button to get health insights
-st.button("Snack It")
-st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
-if st.button('Snack-o-meter it!'):
-    with st.spinner('Looking hard for nutrients...'):
-if st.button('Snack-o-meter it!'):
-    with st.spinner('Looking hard for nutrients...'):
+# Title and subheader with custom styles
+st.markdown('<p class="title">Snack-O-Meter</p>', unsafe_allow_html=True)
+st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
+
 
 st.divider()
 
