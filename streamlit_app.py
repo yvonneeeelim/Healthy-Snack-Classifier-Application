@@ -99,7 +99,7 @@ if uploaded_file is not None:
 
 
     with open("classifier.pkl", 'rb') as our_model:
-    model = pickle.load(our_model)
+        model = pickle.load(our_model)
 
     data = {'total_fat_g_per_gram_of_serving': [fats],
             'sugars_g_per_gram_of_serving': [sugar],
