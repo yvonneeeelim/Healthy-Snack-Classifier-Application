@@ -49,7 +49,7 @@ st.divider()
 # Get user input for nutrients
 sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
 fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
-sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
+sodium = st.number_input("Enter Sodium (g):", min_value=0, step=1)
 
 with open("classifier.pkl", 'rb') as our_model:
     model = pickle.load(our_model)
@@ -117,3 +117,55 @@ if uploaded_file is not None:
             st.write("Good Job! Your snack is healthy! Keep snacking.")
     
         st.success("Done!")
+
+
+st.divider()
+
+# Load product data from CSV file
+product_data = pd.read_csv('./data/df_final.csv')
+
+# Get user input for product lookup
+product_name = st.selectbox("Snacks Name:",
+                        ("Beryl's Chocolate Orange Cashew Nuts Cookies",
+                         "Julie's Crackers - Butter",
+                         "Meiji Hello Panda Biscuits - Milk",
+                         "Loacker Quadratini Crispy Wafers - Napolitaner"))
+if product_name:
+    # Search for the product in the product data
+    product_info = product_data[product_data['Product'].str.contains(product_name, case=False)]
+
+    # Display product information if found
+    if not product_info.empty:
+        fats = product_info['Fat(g)'].values[0]
+        sugar = product_info['Sugar(g)'].values[0]
+        sodium = product_info['Sodium(g)'].values[0]
+
+        st.write(f"**Product Name:** {product_name}")
+        st.write(f"**Fat:** {fat}g")
+        st.write(f"**Sugar:** {sugar}g")
+        st.write(f"**Sodium:** {sodium}g")
+
+        with open("classifier.pkl", 'rb') as our_model:
+            model = pickle.load(our_model)
+
+        data = {'total_fat_g_per_gram_of_serving': [fats],
+                'sugars_g_per_gram_of_serving': [sugar],
+                'sodium_g_per_gram_of_serving': [sodium]}
+        test = pd.DataFrame(data)
+
+        button = st.button('Get my snack details!')
+        # if button is pressed
+        if button:
+            ans=model.predict(test)
+    
+            if ans==0:
+                st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+            else:
+                st.write("Good Job! Your snack is healthy! Keep snacking.")
+    
+    else:
+        st.write("Product not found.")
+
+    
+    st.success("Done!")
+    
