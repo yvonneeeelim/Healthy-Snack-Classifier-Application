@@ -122,7 +122,7 @@ if uploaded_file is not None:
 st.divider()
 
 # Load product data from CSV file
-product_data = pd.read_csv('./data/df_final.csv')
+product_data = pd.read_csv('df_final.csv')
 
 # Get user input for product lookup
 product_name = st.selectbox("Snacks Name:",
