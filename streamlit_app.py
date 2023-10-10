@@ -15,9 +15,24 @@ image = Image.open('snacks.jpg')
 st.image(image, use_column_width=True)
 
 
-st.title("Snack-O-Meter")
-st.subheader("Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze")
-
+# Custom CSS to style the title and subheader
+st.markdown(
+    """
+    <style>
+    .title {
+        font-size: 50px;
+        font-size: 46px;
+        font-weight: bold;
+        color: #4CAF50;
+        text-align: center;
+@@ -58,8 +58,8 @@
+# Button to get health insights
+#st.button("Snack It")
+#st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+if st.button('Snack-o-meter it!'):
+    with st.spinner('Looking hard for nutrients...'):
+#if st.button('Snack-o-meter it!'):
+   # with st.spinner('Looking hard for nutrients...'):
 
 st.divider()
 
