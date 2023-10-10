@@ -58,7 +58,7 @@ data = {'total_fat_g_per_gram_of_serving': [fats],
         'sodium_g_per_gram_of_serving': [sodium]}
 test = pd.DataFrame(data)
 
-button = st.button('Get my snack deets!')
+button = st.button('Get my snack details!')
 # if button is pressed
 if button:
     ans=model.predict(test)
