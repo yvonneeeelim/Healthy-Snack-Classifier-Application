@@ -141,7 +141,7 @@ if product_name:
         sodium = product_info['Sodium(g)'].values[0]
 
         st.write(f"**Product Name:** {product_name}")
-        st.write(f"**Fat:** {fat}g")
+        st.write(f"**Fat:** {fats}g")
         st.write(f"**Sugar:** {sugar}g")
         st.write(f"**Sodium:** {sodium}g")
 
