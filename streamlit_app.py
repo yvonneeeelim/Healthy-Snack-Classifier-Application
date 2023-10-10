@@ -132,7 +132,7 @@ product_name = st.selectbox("Search for Snacks:",
                          "Loacker Quadratini Crispy Wafers - Napolitaner"))
 if product_name:
     # Search for the product in the product data
-    product_info = product_data[product_data['Product'].str.contains(product_name, case=False)]
+    product_info = product_data[product_data['product'].str.contains(product_name, case=False)]
 
     # Display product information if found
     if not product_info.empty:
