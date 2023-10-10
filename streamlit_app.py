@@ -74,8 +74,11 @@ if button:
 
 st.divider()
 
+# Get user input for nutrients
+input_image = Image.open(image)
+st.image(input_image)
 reader = easyocr.Reader(['en'])
-result = reader.readtext('nutrition_label.png')
+result = reader.readtext(np.array(input_image))
 
 df = pd.DataFrame(result)
 df.columns = ['1', 'Text', '2']
