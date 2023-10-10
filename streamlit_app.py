@@ -5,6 +5,7 @@ import time
 from PIL import Image
 import pickle
 import pandas as pd
+import easyocr
 
 import streamlit as st
 
@@ -69,3 +70,17 @@ if button:
         st.write("Good Job! Your snack is healthy! Keep snacking.")
     
     st.success("Done!")
+
+
+st.divider()
+
+reader = easyocr.Reader(['en'])
+result = reader.readtext('nutrition_label.png')
+
+df = pd.DataFrame(result)
+df.columns = ['1', 'Text', '2']
+
+# Print out the Total Fat
+print('Total Fat:' + df.iloc[df.loc[(df['Text'] == 'Total Fat')].index+1,1:2])
+
+
