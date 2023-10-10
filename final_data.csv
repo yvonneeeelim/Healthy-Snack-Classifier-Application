@@ -1,0 +1,89 @@
+type,product,per_serving_g,total_fat_g,sugars_g,carbohydrate_g,protein_g,sodium_g,salt_g,total_fat_g_per_gram_of_serving,sugars_g_per_gram_of_serving,sodium_g_per_gram_of_serving
+cookie,Beryl's Chocolate Orange Cashew Nuts Cookies,25,4.6,7.6,15.9,2.6,0,0,0.184,0.304,0
+cookie,Beryl's Coconut Sable with Macadamia Nuts,25,9.9,5.1,12.4,1.4,0,0,0.396,0.204,0
+cookie,Beryl's Cookies Chocolate Sable,25,7.2,9.2,16.3,1.6,0,0,0.288,0.368,0
+cookie,Beryl's Strawberry Sable,25,9.4,4.8,13.7,1.4,0,0,0.376,0.192,0
+cookie,Beryl's Cookies Exquisite Selection (Tin),25,4,5,11.7,1.7,0,0,0.16,0.2,0
+cookie,Chipsmore Cookies Multipack - Original,28,6,8.5,19.4,1.5,0.098,0,0.214285714,0.303571429,0.0035
+cookie,Chipsmore Cookies Multipack - Double Chocolate,28,5.9,8.5,19.4,1.6,0.094,0,0.210714286,0.303571429,0.003357143
+cookie,FUEL10K Double Chocolate High Protein Oat Cookie,100,14.9,3.8,40.7,21.5,0,0.7,0.149,0.038,0.0028
+cookie,Jules Destrooper Biscuits - Belgian Chocolate Thins,100,25,51,63,6.3,0,0.6,0.25,0.51,0.0024
+cookie,Julie's Oat 25 Cookies - Hazelnuts &amp; Chocolate Chips,25,6,6.5,16,0,0.08,0,0.24,0.26,0.0032
+cookie,Lee Chocolate Chips,100,20,24.7,71.1,5,0.355,0,0.2,0.247,0.00355
+cookie,Marks &amp; Spencer Belgian White Chocolate Chunk Cookies,100,28.1,32.4,58.9,5.9,0,0.75,0.281,0.324,0.003
+cookie,Marks &amp; Spencer Mini Chocolate Chip Cookie Bags,100,21.3,30.1,65.6,5.9,0,0.8,0.213,0.301,0.0032
+cookie,Marks &amp; Spencer Triple Belgian Chocolate Chunk Cookies,100,26.1,31,61.6,5.5,0,0.6,0.261,0.31,0.0024
+cookie,Munchy's Oat Krunch - Dark Chocolate,26,5,7,18,2,0.05,0,0.192307692,0.269230769,0.001923077
+cookie,Munchy's Oat Krunch - Nutty Chocolate,26,5,5.8,17,2,0.05,0,0.192307692,0.223076923,0.001923077
+cookie,Pasta Natura Organic Chocolate Chips Biscuits - Gluten Free,100,22,24,64,5.2,0,0.9,0.22,0.24,0.0036
+cookie,Pasta Natura Organic Cocoa and Hazelnuts Biscuits Gluten Free,100,21,12,58,6.2,0,0.78,0.21,0.12,0.00312
+cookie,Serious Food Company Serious Cookies - Chocolate Chip,17,4.1,5.6,10.4,0.8,0.056,0,0.241176471,0.329411765,0.003294118
+cookie,Quaker Oats Cookies - Chocolate Chip,27,4.7,9,19,2,0.1222,0,0.174074074,0.333333333,0.004525926
+cookie,Sanwa Oat Nutrition Choco,100,27.7,30,57.3,5.6,0.307,0,0.277,0.3,0.00307
+cookie,Serious Food Company Serious Cookies - White Choc Macadamia,17,4.4,5.3,10.2,0.9,0.058,0,0.258823529,0.311764706,0.003411765
+cracker,Julie's Crackers - Butter,25,8,2,15,2,0.14,0,0.32,0.08,0.0056
+cracker,Julie's Veggie Crackers,23,6,1,14,2,0.14,0,0.260869565,0.043478261,0.006086957
+cracker,Ritz Crackers Box - Original,19,5,1,12,1,0.13,0,0.263157895,0.052631579,0.006842105
+cracker,Hup Seng Crackers - Cream,31,7,3,0,0,0.18,0,0.225806452,0.096774194,0.005806452
+cracker,Hup Seng Crackers - Sugar,22.5,3,4,19,2,0.14,0,0.133333333,0.18,0.006222222
+cracker,Munchy's Crackers - Cream,100,19,2,68,9,0.51,0,0.19,0.02,0.0051
+cracker,FairPrice Cream Crackers - Special,100,22.8,13.9,67,6.8,0.7,0,0.228,0.14,0.007
+cracker,FairPrice Cream Crackers,100,12.7,1.6,73.6,8.6,0.367,0,0.127,0.016,0.00367
+cracker,Munchy's Crackers - Sugar,30,6,4,21,3,0.16,0,0.2,0.133333333,0.005333333
+cracker,Khong Guan Crackers - Cream,26,4,1,18,3,0.215,0,0.153846154,0.038,0.008269231
+cracker,Julie's Crackers - Wheat,25,8,1,15,2,0.16,0,0.32,0.04,0.0064
+cracker,Hup Seng Crackers - Cream (Special),22.5,6,1,14,2,0.1,0,0.266666667,0.045,0.004444444
+cracker,Munchy's Lexus Sandwich Calcium Crackers - Vegetable,100,24,13,65,8,0.437,0,0.24,0.13,0.00437
+cracker,Khong Guan Crackers - Family,36,9,1,21,4,0.19,0,0.25,0.028,0.005277778
+cracker,Hup Seng Crackers - Wholemeal,22.5,6,2,14,0,0.1,0,0.266666667,0.088888889,0.004444444
+cracker,Khong Guan Biscuits - Sultana,30,4,11,21,2,0.085,0,0.133333333,0.37,0.002833333
+cracker,Munchy's Crackers - Vegetables,100,18,2,67,11,0.5,0,0.18,0.02,0.005
+cracker,Nabisco Chicken in a Biskit Baked Snack Crackers,31,8,2,19,2,0.23,0,0.258064516,0.064516129,0.007419355
+cracker,Cowhead Crispy Crackers - Cheese,26,6,5,0,0,0.105,0,0.230769231,0.192307692,0.004038462
+cracker,Shoon Fatt Crackers - Light Treat (Cream Special),20,5,1,13,2,0.106,0,0.25,0.05,0.0053
+cracker,Shoon Fatt Crackers - Sweeties (Sugar),20,3,3,15,2,0.12,0,0.15,0.15,0.006
+cream,Arnott's Tim Tam Biscuits - Chewy Caramel,100,23.9,46.8,65.1,4.7,0.193,0,0.239,0.468,0.00193
+cream,Cowhead Sandwich Crackers with Calcium - Cheese,24,6,4,15,2,0.14,4,0.25,0.167,0.00583333
+cream,Glico Collon Biscuit Roll - Chocolate,46,11,17.9,31.1,2.9,0.012,0,0.239130435,0.389130435,0.00026087
+cream,Jack 'n Jill Dewberry Sandwich Biscuits - Blueberry,36,9.9,12.6,21.8,2.1,0.183,0,0.275,0.35,0.005083333
+cream,Jack 'n Jill Dewberry Sandwich Biscuits - Strawberry,36,7.9,12,23.8,2.2,0.1,0,0.219444444,0.333333333,0.002777778
+cream,Julie's Le-Mond Sandwich Biscuits - Cheddar Cheese,18,4.6,2.7,10.8,1.4,0.088,0,0.255555556,0.15,0.00488889
+cream,Julie's Le-Mond Sandwich Biscuits - Lemon,17,3.9,3.4,0.2,0.3,0.096,0,0.229411765,0.2,0.005647
+cream,Julie's Sandwich Biscuits - Cheese,28,8,5,18,2,0.115,0,0.285714286,0.178571429,0.004107143
+cream,Julie's Sandwich Biscuits - Peanut Butter,30,8,6,18,3,0.085,0,0.266666667,0.2,0.002833333
+cream,Khong Guan Sandwich Biscuits - Banana ,30,9,6,18,2,0.085,0,0.3,0.2,0.002833333
+cream,Khong Guan Sandwich Biscuits - Cookies &amp; Cream ,27,6.8,7.3,17.4,2,0.0977,0,0.251851852,0.27037037,0.003618519
+cream,Khong Guan Sandwich Biscuits - Custard,30,8,5,19,2,0.075,0,0.266666667,0.166666667,0.0025
+cream,Khong Guan Sandwich Biscuits - Lemon Puff,22,6,4,13,1,0.117,0,0.272727273,0.182,0.005318182
+cream,Khong Guan Sandwich Biscuits - Orange,31,10,8,18,2,0.085,0,0.322580645,0.258064516,0.002741935
+cream,Lotus Biscoff Biscuit - Biscoff Cream,100,26,34,66,4.6,0.325,0.81,0.26,0.34,0.00325
+cream,Lotus Biscoff Biscuits - Milk Chocolate,100,24,40,67,5.2,0.325,0.72,0.24,0.4,0.00325
+cream,Meiji Hello Panda Biscuits - Chocolate,26,7.5,7.5,16.3,1.8,0.107,0,0.288461538,0.28846154,0.004115385
+cream,Meiji Hello Panda Biscuits - Milk ,26,6.9,7.6,16.9,1.7,0.097,0,0.265384615,0.292307692,0.003730769
+cream,Meiji Hello Panda Biscuits - Strawberry ,26,7,7.6,17.13,1.4,0.107,0,0.269230769,0.26923077,0.004115385
+cream,Munchy's Lexus Sandwich Calcium Crackers - Chocolate,19,5,4,12,1,0.074,0,0.263157895,0.210526316,0.003894737
+cream,Munchy's Lexus Sandwich Calcium Crackers - Peanut Butter,100,27,20,61,10,0.314,0,0.27,0.2,0.00314
+cream,Oreo Sandwich Cookies Multipack - Chocolate Creme,29,6,11.2,20.3,1.5,0.126,0,0.206896552,0.386206897,0.004344828
+cream,Oreo Sandwich Cookies Multipack - Dark &amp; White Chocolate ,29,6,11,21,1,0.15,0,0.206896552,0.379310345,0.005172414
+cream,Oreo Sandwich Cookies Multipack - Strawberry ,29,5.9,11.2,20.9,1.5,0.142,0,0.203448276,0.386206897,0.004896552
+cream,Ritz Sandwich Biscuits Multipack - Chocolate Cream,27,7.1,6.3,16.7,1.4,0.083,0,0.262962963,0.233333333,0.003074074
+wafer,Loacker Quadratini Crispy Wafers - Matcha-Green Tea,100,24,27,62,8,0,0.42,0.24,0.27,0.00168
+wafer,Alor Durian Wafer 21g x 10,100,31.1,0,61.1,4.6,0.061,0,0.311,0,0.00061
+wafer,Beryl's Coconut Rolls Original,75,7.1,23,38.3,1.8,0.03,0,0.094666667,0.306666667,0.0004
+wafer,Julie's Love Letter Wafer Biscuit Roll - Chocolate,30,4,13,23,0,0.065,0,0.133333333,0.43333333,0.002166667
+wafer,Julie's Love Letter Wafer Biscuit Roll - Strawberry,30,5,12,22,0,0.065,0,0.166666667,0.4,0.002166667
+wafer,Lee S'bery Wafers Sticks,180,31.6,23.2,0,6.2,0.048,0,0.175555556,0.128888889,0.000266667
+wafer,Loacker Crispy Wafer Bar - Milk,100,28,27,59,8.7,0,0.41,0.28,0.27,0.00164
+wafer,Loacker Crispy Wafer Bar - Cremkakao,100,26,28,59,7.7,0,0.31,0.26,0.28,0.00124
+wafer,Mincher Peanut Flavor Wafer,400,29.2,10.9,47.9,11.4,0.071,0,0.073,0.02725,0.0001775
+wafer,Redondo Cream Wafers - Cappuccino,36,6.5,12.6,27,1.1,0.081,0,0.180555556,0.35,0.00225
+wafer,"Schar Schar Wafers with Lemon Cream, Gluten Free",100,24,33,71,2.4,0,0.15,0.24,0.33,0.0006
+wafer,Lee Biscuits Carton - 24 Pack Cheese Cream Wafers Cubes,80,32.4,12.8,0,4.6,0.314,0,0.405,0.16,0.003925
+wafer,Lee Biscuits Carton - 24 Pack Strawberry Cream Wafers Cubes,90,31.6,23.2,0,6.2,0.048,0,0.351111111,0.257777778,0.000533333
+wafer,Aladdin Danish Deluxe Waffle Cones,100,6.9,28.6,84.5,6.1,0,0,0.069,0.286,0
+wafer,Aladdin Ice Cream Cones,12,0.5,4,0,1,0.007,0,0.041666667,0.33333333,0.000583333
+wafer,Jules Destrooper Biscuits - Butter Crisps,100,15,36,65,5.1,0,0.41,0.15,0.36,0.00164
+wafer,Kagi Swiss Chocolate Wafer Minis - Classic,100,35,38,57,6.5,0,0.24,0.35,0.38,0.00096
+wafer,Lee Biscuits Carton - 24 Pack Chocolate Cream Wafers Cubes,90,26.7,30.7,0,5.5,0.049,0,0.296666667,0.341111111,0.000544444
+wafer,Lee Biscuits Carton - 24 Pack Lemon Cream Wafers Cubes,90,25.5,20.7,0,4.7,0.062,0,0.283333333,0.23,0.000688889
+wafer,Kagi Swiss Chocolate Wafer Minis - Dark,125,37,34,55,5.9,0,0.14,0.296,0.272,0.000448
