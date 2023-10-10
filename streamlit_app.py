@@ -26,13 +26,14 @@ st.markdown(
         color: #4CAF50;
         text-align: center;
 @@ -58,8 +58,8 @@
+
 # Button to get health insights
-#st.button("Snack It")
-#st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+st.button("Snack It")
+st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
 if st.button('Snack-o-meter it!'):
     with st.spinner('Looking hard for nutrients...'):
-#if st.button('Snack-o-meter it!'):
-   # with st.spinner('Looking hard for nutrients...'):
+if st.button('Snack-o-meter it!'):
+    with st.spinner('Looking hard for nutrients...'):
 
 st.divider()
 
