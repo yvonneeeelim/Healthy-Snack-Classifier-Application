@@ -50,33 +50,16 @@ sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
 fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
 sodium = st.number_input("Enter Sodium (mg):", min_value=0, step=1)
 
-# Logic to recommend snacks based on user input (this is just a sample recommendation logic)
-recommended_snacks = []
-if sugar < 200 and fats > 10:
-    recommended_snacks.append("Greek Yogurt", "https://www.fairprice.com.sg/product/farmers-union-greek-style-yoghurt-natural-1kg-155863")
-if sodium < 20 and fats < 10:
-    recommended_snacks.append("Almond Nuts", "https://www.fairprice.com.sg/product/natures-wonders-baked-almond-nuts-70g-11720126")
-if sugar < 150:
-    recommended_snacks.append("Granola", "https://www.fairprice.com.sg/product/sweet-home-farm-granola-blueberry-with-flax-454g-13217933")
-
-# Display recommended snacks
-st.write("### Recommended Snacks:")
-if recommended_snacks:
-    for snack in recommended_snacks:
-        st.write(f"- {snack}")
-else:
-    st.write("Uh-oh, no recommended snacks. Let us stock up first!")
-
-with open("our_model.pkl", 'rb') as our_model:
+with open("classifier.pkl", 'rb') as our_model:
     model = pickle.load(our_model)
 
-with open('our_vectorizer.pkl', 'rb') as vect:
-    vectorizer = pickle.load(vect)
-    
-   
-st.write(" ")
-with st.chat_message("user"):
-    st.write("Hello👋 We hope that the above resources have been helpful.")
-    st.write("If you need more support and would like to chat with someone:") 
-    st.link_button("Click for more assistance", "https://familyassist.msf.gov.sg/content/resources/programmes/online-counselling/")
-
+if st.button('Get my snack deets!'):
+    with st.spinner('Searching for your snacks details...'):
+        
+        sugars_g_per_gram_of_serving = sugar
+        total_fat_g_per_gram_of_serving = fats
+        sodium_mg_per_gram_of_serving = sodium
+        user_series = pd.Series(user)
+        prediction = model.predict(user_record)
+        
+    st.success('Done!')
