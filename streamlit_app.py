@@ -50,9 +50,9 @@ with open('our_vectorizer.pkl', 'rb') as vect:
     vectorizer = pickle.load(vect)
     
    
-        st.write(" ")
-        with st.chat_message("user"):
-            st.write("Hello👋 We hope that the above resources have been helpful.")
-            st.write("If you need more support and would like to chat with someone:") 
-            st.link_button("Click for more assistance", "https://familyassist.msf.gov.sg/content/resources/programmes/online-counselling/")
+st.write(" ")
+with st.chat_message("user"):
+    st.write("Hello👋 We hope that the above resources have been helpful.")
+    st.write("If you need more support and would like to chat with someone:") 
+    st.link_button("Click for more assistance", "https://familyassist.msf.gov.sg/content/resources/programmes/online-counselling/")
 
