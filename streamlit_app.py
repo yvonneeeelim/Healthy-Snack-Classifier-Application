@@ -193,5 +193,5 @@ with tab3:
                 st.dataframe(merged_outcome) 
             
            else:
-                st.write("Thank you for your patience, it appears that we do not have the relevant snack that you have queried!")
+               st.write("Thank you for your patience, it appears that we do not have the relevant snack that you have queried!")
       
