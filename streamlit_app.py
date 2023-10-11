@@ -161,7 +161,7 @@ with tab3:
    
    button3 = st.button('Find snacks!',key="button3")
    
-            # if button is pressed
+   # if button is pressed
    if button3:
         st.spinner("Finding snack...")
    
@@ -189,7 +189,7 @@ with tab3:
             
             st.write("Below is the result of relevant snacks that you have queried! :blush:")
             
-            st.DataFrame(merged_outcome) 
+            st.dataFrame(merged_outcome) 
             
    else:
             st.write("Thank you for your patience, it appears that we do not have the relevant snacks that you have queried!")
