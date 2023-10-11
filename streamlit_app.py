@@ -41,7 +41,7 @@ st.markdown(
 
 # Title and subheader with custom styles
 st.markdown('<p class="title">Snack-O-Meter</p>', unsafe_allow_html=True)
-st.markdown('<p class="subheader">Snack, & Stay Healthy! Look up your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
+st.markdown('<p class="subheader">Snack & Stay Healthy! Look up your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
 
 
 st.divider()
