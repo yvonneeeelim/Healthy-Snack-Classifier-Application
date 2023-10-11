@@ -146,7 +146,7 @@ if product_name:
     product_info = product_data[product_data[['product'].str.contains(product_name, case=False)]
 
     # Display product information if found
-    if not product_info.empty:
+    if len(product_info)!=0 :
         fats = product_info['total_fat_g_per_gram_of_serving'].values[0]
         sugar = product_info['sugars_g_per_gram_of_serving'].values[0]
         sodium = product_info['sodium_g_per_gram_of_serving)'].values[0]
