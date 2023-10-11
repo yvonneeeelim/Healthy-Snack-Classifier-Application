@@ -46,13 +46,10 @@ st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, un
 
 st.divider()
 
-# Create two tabs in the sidebar
-tabs = st.sidebar.radio("Navigation", ["Tab 1", "Tab 2"])
+tab1, tab2, tab3 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords"])
 
-# Content for Tab 1
-if tabs == "Tab 1":
-    st.title("Tab 1 Content")
-    st.write("This is the content of Tab 1.")
+with tab1:
+   st.header("Enter Your Nutrients")
     
     # Get user input for nutrients
     sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
@@ -82,11 +79,8 @@ if tabs == "Tab 1":
 
 st.divider()
 
-# Content for Tab 2
-elif tabs == "Tab 2":
-    st.title("Tab 2 Content")
-    st.write("This is the content of Tab 2.")
-
+with tab2:
+   st.header("Upload an image")
 
     # Get user input for image upload
     uploaded_file = st.file_uploader("Upload an image:", type=["jpg", "jpeg", "png"])
@@ -135,10 +129,8 @@ elif tabs == "Tab 2":
 
 st.divider()
 
-# Content for Tab 3
-else:
-    st.title("Tab 3 Content")
-    st.write("This is the content of Tab 3.")
+with tab3:
+   st.header("Search Keywords")
 
     # Load product data from CSV file
     product_data = pd.read_csv('final_data.csv')
