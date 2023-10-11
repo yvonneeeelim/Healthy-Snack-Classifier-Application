@@ -150,3 +150,47 @@ with tab2:
                     st.write("Good Job! Your snack is healthy! Keep snacking.")
     
         st.success("Done!")
+
+with tab3:
+   st.header("Search Keywords")
+   # Load product data from CSV file
+   product_data = pd.read_csv('final_data.csv')
+
+   # Get user input for product lookup
+   query = st.text_input("Enter the name of the snack")
+   
+   button3 = st.button('Find snacks!',key="button3")
+   
+            # if button is pressed
+   if button3:
+        st.spinner("Finding snack...")
+   
+        subset_data = product_data[product_data['product'].str.contains(query,case=False, regex=True)==True].reset_index()
+        
+        if len(subset_data) != 0:
+   
+            subset_data_X = subset_data[['total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']]
+   
+            with open("classifier.pkl", 'rb') as our_model:
+                model = pickle.load(our_model)
+       
+            prediction_array = model.predict(subset_data_X)
+   
+            pred_df = pd.DataFrame(prediction_array).rename(columns = {0:"class"})
+
+            pred_df['outcome'] = pred_df['class'].replace({0:"Not healthy, refrain from consuming",1:"Eat in moderation"})
+            
+            merged_subset = pd.merge(subset_data,pred_df,left_index = True, right_index = True)
+            merged_subset_answer = merged_subset[['product','outcome']].sort_values('outcome')
+            
+            merged_outcome = merged_subset_answer.reset_index().drop("index",axis=1)
+            
+            st.success("Complete!")
+            
+            st.write("Below is the result of relevant snacks that you have queried! :blush:")
+            
+            st.DataFrame(merged_outcome)
+            
+   else:
+            st.write("Thank you for your patience, it appears that we do not have the relevant snacks that you have queried!")
+      
