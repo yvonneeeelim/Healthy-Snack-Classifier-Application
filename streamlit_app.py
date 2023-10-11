@@ -137,9 +137,9 @@ with tab2:
                 'sodium_g_per_gram_of_serving': [sodium_per_gram]}
         test = pd.DataFrame(data)
 
-        button = st.button('Get my snack details!')
+        button2 = st.button('Get my snack details!')
         # if button is pressed
-        if button:
+        if button2:
             ans=model.predict(test)
     
             if ans==0:
