@@ -47,7 +47,7 @@ st.markdown('<p class="subheader">Snack & Stay Healthy! Look up your snack, unco
 st.divider()
 
 st.markdown("**Choose from below options:**")
-tab1, tab2, tab3 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords"])
+tab1, tab2, tab3, tab4 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords", "Find healthy snack"])
 # Add a short liner above the tabs
 
 with tab1:
