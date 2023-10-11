@@ -96,14 +96,31 @@ with tab2:
         df = pd.DataFrame(result)
         df.columns = ['1', 'Text', '2']
 
-        # Extract Total Fat value
-        total_fat_row = df.loc[df['Text'] == 'Total Fat']
-        if not total_fat_row.empty:
-            total_fat_index = total_fat_row.index[0]
-            total_fat_value = df.iloc[total_fat_index + 1, 1]  # Extracting the value after 'Total Fat'
-            print('Total Fat: ' + total_fat_value)
-        else:
-            print('Total Fat information not found in the image.')
+        # save the values into its respective dataframes
+        sodium = df.iloc[df.loc[(df['Text'] == 'Sodium')].index+1,1:2]
+        fats = df.iloc[df.loc[(df['Text'] == 'Total Fat')].index+1,1:2]
+        sugar = df.iloc[df.loc[(df['Text'] == 'Total Sugar')].index+1,1:2]
+        serving = df.iloc[df.loc[(df['Text'] == "Servings Size")].index+1,1:2]
+
+        # storing the values of the extracted text
+        sodium_value = sodium['Text'].iloc[0]
+        fats_value = fats['Text'].iloc[0]
+        sugars_value = sugars['Text'].iloc[0]
+        serving_value = serving['Text'].iloc[0]
+
+        # extract out the serving size in grams
+        serving_size = float(serving_value[:2])
+
+        fats_actual_value = float(fats_value[:-1])
+
+        sugars_actual_value = float(sugars_value[:-1])
+
+        sodium_actual_value = float(sodium_value[:-2])/1000
+
+        # calculate the nutrition value for prediction
+        fats_per_gram = fats_actual_value/serving_size
+        sugars_per_gram = sugars_actual_value/serving_size
+        sodium_per_gram = sodium_actual_value/serving_size
 
 
         with open("classifier.pkl", 'rb') as our_model:
