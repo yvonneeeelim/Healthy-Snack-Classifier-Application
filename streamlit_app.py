@@ -47,6 +47,8 @@ st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, un
 st.divider()
 
 tab1, tab2, tab3 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords"])
+button = st.button("Get my snack details!", key="button")
+button2 = st.button("Get my snack details!", key="button2")
 
 with tab1:
    st.header("Enter Your Nutrients")
