@@ -129,6 +129,7 @@ if uploaded_file is not None:
 
 st.divider()
 
+'''
 with tab3:
    st.header("Search Keywords")
 
@@ -179,4 +180,4 @@ if product_name:
 
     
         st.success("Done!")
-    
+  '''  
