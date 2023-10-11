@@ -52,10 +52,10 @@ with tab1:
    st.header("Enter Your Nutrients")
     
    # Get user input for nutrients
-   sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
-   fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
-   sodium = st.number_input("Enter Sodium (g):", min_value=0, step=1)
-   serving_size = st.number_input("Enter Serving Size (g):", min_value=0, step=1)
+   sugar = float(st.number_input("Enter Sugar (g):", min_value=0, step=1))
+   fats = float(st.number_input("Enter Fats (g):", min_value=0, step=1))
+   sodium = float(st.number_input("Enter Sodium (g):", min_value=0, step=1))
+   serving_size = float(st.number_input("Enter Serving Size (g):", min_value=0, step=1))
 
    # calculate the nutrition value for prediction
    fats_per_gram = fats/serving_size
