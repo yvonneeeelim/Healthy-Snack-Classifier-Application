@@ -186,7 +186,7 @@ with tab3:
             pred_df['Recommendation'] = pred_df['class'].replace({0:"Unhealthy snack, please refrain from consuming",1:"Eat in moderation"})
             
             merged_subset = pd.merge(subset_data,pred_df,left_index = True, right_index = True)
-            merged_subset_answer = merged_subset[['product','outcome']].sort_values('Recommendation')
+            merged_subset_answer = merged_subset[['Product','Recommendation']].sort_values('Recommendation')
             
             merged_outcome = merged_subset_answer.reset_index().drop("index",axis=1)
             
