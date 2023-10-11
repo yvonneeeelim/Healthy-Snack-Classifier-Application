@@ -198,3 +198,66 @@ with tab3:
             else:
                st.write("Thank you for your patience, it appears that we do not have the relevant snack that you have queried!")
       
+with tab4:
+   st.header("Find healthy snack")
+   # Load product data from CSV file
+   product_data = pd.read_csv('final_data.csv')
+   
+   product_X = product_data[['total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']]
+   
+   with open("classifier.pkl", 'rb') as our_model:
+       model = pickle.load(our_model)
+
+   prediction_array = model.predict(product_X)
+
+   pred_df = pd.DataFrame(prediction_array).rename(columns = {0:"class"})
+
+   pred_df['outcome'] = pred_df['class'].replace({0:"Unhealthy snack, please refrain from consuming",1:"Eat in moderation"})
+
+
+   merged_subset = pd.merge(product_data,pred_df,left_index = True, right_index = True)
+   merged_subset_answer = merged_subset[['type','product','outcome','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
+
+   good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_cream_data = merged_subset_answer[merged_subset_answer['type']=="cream"& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_wafer_data = merged_subset_answer[merged_subset_answer['type']=="wafer"& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_cracker_data = merged_subset_answer[merged_subset_answer['type']=="cracker"& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   
+   category =  st.radio("Choose your category of snack", ['cookie','cracker','cream','wafer'])
+   
+   nutri_option = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'])
+   
+   if category == 'cookie' and nutri_option == 'fat content':
+       answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'cookie' and nutri_option == 'sugar content':
+       answer = good_cookie_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'cookie' and nutri_option == 'sodium content':
+       answer = good_cookie_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       
+   elif category == 'cream' and nutri_option == 'fat content':
+       answer = good_cream_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'cream' and nutri_option == 'sugar content':
+       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'cream' and nutri_option == 'sodium content':
+       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       
+   elif category == 'cracker' and nutri_option == 'fat content':
+       answer = good_cracker_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'cracker' and nutri_option == 'sugar content':
+       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'cracker' and nutri_option == 'sodium content':
+       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+   
+   elif category == 'wafer' and nutri_option == 'fat content':
+       answer = good_wafer_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   elif category == 'wafer' and nutri_option == 'sugar content':
+       answer = good_wafer_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+   else:
+       answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       
+
+   button4 = st.button('Find the healthiest snack!',key="button4")
+   
+   if button4:
+       st.write("Here's our recommended snack!")
+       st.dataframe(answer)
