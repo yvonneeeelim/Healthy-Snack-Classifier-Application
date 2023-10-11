@@ -55,13 +55,19 @@ with tab1:
    sugar = st.number_input("Enter Sugar (g):", min_value=0, step=1)
    fats = st.number_input("Enter Fats (g):", min_value=0, step=1)
    sodium = st.number_input("Enter Sodium (g):", min_value=0, step=1)
+   serving_size = st.number_input("Enter Serving Size (g):", min_value=0, step=1)
+
+   # calculate the nutrition value for prediction
+   fats_per_gram = fats/serving_size
+   sugars_per_gram = sugar/serving_size
+   sodium_per_gram = sodium/serving_size
 
    with open("classifier.pkl", 'rb') as our_model:
         model = pickle.load(our_model)
 
-   data = {'total_fat_g_per_gram_of_serving': [fats],
-            'sugars_g_per_gram_of_serving': [sugar],
-            'sodium_g_per_gram_of_serving': [sodium]}
+   data = {'total_fat_g_per_gram_of_serving': [fats_per_gram],
+            'sugars_g_per_gram_of_serving': [sugars_per_gram],
+            'sodium_g_per_gram_of_serving': [sodium_per_gram]}
    test = pd.DataFrame(data)
 
    button = st.button('Get my snack details!')
@@ -105,7 +111,7 @@ with tab2:
         # storing the values of the extracted text
         sodium_value = sodium['Text'].iloc[0]
         fats_value = fats['Text'].iloc[0]
-        sugars_value = sugars['Text'].iloc[0]
+        sugars_value = sugar['Text'].iloc[0]
         serving_value = serving['Text'].iloc[0]
 
         # extract out the serving size in grams
@@ -126,9 +132,9 @@ with tab2:
         with open("classifier.pkl", 'rb') as our_model:
             model = pickle.load(our_model)
 
-        data = {'total_fat_g_per_gram_of_serving': [fats],
-                'sugars_g_per_gram_of_serving': [sugar],
-                'sodium_g_per_gram_of_serving': [sodium]}
+        data = {'total_fat_g_per_gram_of_serving': [fats_per_gram],
+                'sugars_g_per_gram_of_serving': [sugars_per_gram],
+                'sodium_g_per_gram_of_serving': [sodium_per_gram]}
         test = pd.DataFrame(data)
 
         button = st.button('Get my snack details!')
