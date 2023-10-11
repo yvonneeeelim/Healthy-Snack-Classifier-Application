@@ -47,8 +47,6 @@ st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, un
 st.divider()
 
 tab1, tab2, tab3 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords"])
-button = st.button("Get my snack details!", key="button")
-button2 = st.button("Get my snack details!", key="button2")
 
 with tab1:
    st.header("Enter Your Nutrients")
@@ -72,17 +70,18 @@ with tab1:
             'sodium_g_per_gram_of_serving': [sodium_per_gram]}
    test = pd.DataFrame(data)
 
-   button = st.button('Get my snack details!')
+   button = st.button("Get my snack details!", key="button")  
    # if button is pressed
    if button:
-        ans=model.predict(test)
+       with st.spinner("Wait for it..."):
+            ans=model.predict(test)
     
-        if ans==0:
-            st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
-        else:
-            st.write("Good Job! Your snack is healthy! Keep snacking.")
+            if ans==0:
+                st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+            else:
+                st.write("Good Job! Your snack is healthy! Keep snacking.")
     
-   st.success("Done!")
+       st.success("Done!")
 
 
 st.divider()
@@ -139,14 +138,15 @@ with tab2:
                 'sodium_g_per_gram_of_serving': [sodium_per_gram]}
         test = pd.DataFrame(data)
 
-        button2 = st.button('Get my snack details!')
+        button2 = st.button("Get my snack details!", key="button2")
         # if button is pressed
         if button2:
-            ans=model.predict(test)
+            with st.spinner("Wait for it..."):
+                ans=model.predict(test)
     
-            if ans==0:
-                st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
-            else:
-                st.write("Good Job! Your snack is healthy! Keep snacking.")
+                if ans==0:
+                    st.write("Your snack is unfortunately unhealthy. Try to pick another snack unless you're too stressed and in need of this snack as comfort food!")
+                else:
+                    st.write("Good Job! Your snack is healthy! Keep snacking.")
     
         st.success("Done!")
