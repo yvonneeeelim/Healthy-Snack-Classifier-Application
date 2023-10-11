@@ -136,7 +136,7 @@ if tabs == "Tab 2":
 st.divider()
 
 # Content for Tab 3
-else tabs == "Tab 3":
+elif tabs == "Tab 3":
     st.title("Tab 3 Content")
     st.write("This is the content of Tab 3.")
 
