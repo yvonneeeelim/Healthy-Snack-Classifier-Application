@@ -41,12 +41,14 @@ st.markdown(
 
 # Title and subheader with custom styles
 st.markdown('<p class="title">Snack-O-Meter</p>', unsafe_allow_html=True)
-st.markdown('<p class="subheader">Scan, Snack, Stay Healthy! Scan your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
+st.markdown('<p class="subheader">Snack, & Stay Healthy! Look up your snack, uncover its nutrients, and receive instant health insights! Make mindful snacking a breeze</p>', unsafe_allow_html=True)
 
 
 st.divider()
 
 tab1, tab2, tab3 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords"])
+# Add a short liner above the tabs
+st.markdown("**Choose from below options**")
 
 with tab1:
    st.header("Enter Your Nutrients")
@@ -73,7 +75,7 @@ with tab1:
    button = st.button("Get my snack details!", key="button")  
    # if button is pressed
    if button:
-       with st.spinner("Wait for it..."):
+       with st.spinner("Searching for snack details..."):
             ans=model.predict(test)
     
             if ans==0:
@@ -141,7 +143,7 @@ with tab2:
         button2 = st.button("Get my snack details!", key="button2")
         # if button is pressed
         if button2:
-            with st.spinner("Wait for it..."):
+            with st.spinner("Searching for snack details..."):
                 ans=model.predict(test)
     
                 if ans==0:
@@ -157,13 +159,13 @@ with tab3:
    product_data = pd.read_csv('final_data.csv')
 
    # Get user input for product lookup
-   query = st.text_input("Enter the name of the snack")
+   query = st.text_input("Enter the name of the snack:")
    
    button3 = st.button('Find snacks!',key="button3")
    
    # if button is pressed
    if button3:
-        st.spinner("Finding snack...")
+        st.spinner("Finding snack details...")
    
         subset_data = product_data[product_data['product'].str.contains(query,case=False, regex=True)==True].reset_index()
         
@@ -178,19 +180,18 @@ with tab3:
    
             pred_df = pd.DataFrame(prediction_array).rename(columns = {0:"class"})
 
-            pred_df['outcome'] = pred_df['class'].replace({0:"Not healthy, refrain from consuming",1:"Eat in moderation"})
+            pred_df['outcome'] = pred_df['class'].replace({0:"Unhealthy snack, please refrain from consuming",1:"Eat in moderation"})
             
             merged_subset = pd.merge(subset_data,pred_df,left_index = True, right_index = True)
             merged_subset_answer = merged_subset[['product','outcome']].sort_values('outcome')
             
             merged_outcome = merged_subset_answer.reset_index().drop("index",axis=1)
             
-            st.success("Complete!")
+            if st.success("Complete!"):
+                st.write("Below shows the results of relevant snack that you have queried!")
             
-            st.write("Below is the result of relevant snacks that you have queried! :blush:")
+                st.dataframe(merged_outcome) 
             
-            st.dataframe(merged_outcome) 
-            
-   else:
-            st.write("Thank you for your patience, it appears that we do not have the relevant snacks that you have queried!")
+           else:
+                st.write("Thank you for your patience, it appears that we do not have the relevant snack that you have queried!")
       
