@@ -189,7 +189,7 @@ with tab3:
             
             st.write("Below is the result of relevant snacks that you have queried! :blush:")
             
-            st.DataFrame(merged_outcome)
+            st.DataFrame(merged_outcome) 
             
    else:
             st.write("Thank you for your patience, it appears that we do not have the relevant snacks that you have queried!")
