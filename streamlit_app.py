@@ -225,7 +225,7 @@ with tab4:
    
    category =  st.radio("Choose your category of snack", ['cookie','cracker','cream','wafer'])
    
-   nutri_option = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'])
+   nutri_option = st.radio("Choose the nutrient that you wish to reduce",['fat content','sugar content','sodium content'])
    
    if category == 'cookie' and nutri_option == 'fat content':
        answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
