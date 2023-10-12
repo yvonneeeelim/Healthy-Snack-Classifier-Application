@@ -47,7 +47,7 @@ st.markdown('<p class="subheader">Snack & Stay Healthy! Look up your snack, unco
 st.divider()
 
 st.markdown("**Choose from below options:**")
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords", "Find Healthy Snack", "Find Snack"])
+tab1, tab2, tab3, tab4 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords", "Find Healthy Snack"])
 # Add a short liner above the tabs
 
 with tab1:
@@ -198,75 +198,9 @@ with tab3:
             else:
                st.write("Thank you for your patience, it appears that we do not have the relevant snack that you have queried!")
       
+
 with tab4:
    st.header("Find Healthy Snack")
-   # Load product data from CSV file
-   product_data = pd.read_csv('final_data.csv')
-   
-   product_X = product_data[['total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']]
-   
-   with open("classifier.pkl", 'rb') as our_model:
-       model = pickle.load(our_model)
-
-   prediction_array = model.predict(product_X)
-
-   pred_df = pd.DataFrame(prediction_array).rename(columns = {0:"class"})
-
-   pred_df['outcome'] = pred_df['class'].replace({0:"Unhealthy snack, please refrain from consuming",1:"Eat in moderation"})
-
-
-   merged_subset = pd.merge(product_data,pred_df,left_index = True, right_index = True)
-   merged_subset_answer = merged_subset[['type','product','outcome','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
-
-   good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
-   good_cream_data = merged_subset_answer[(merged_subset_answer['type']=="cream")& (merged_subset_answer['outcome'] =="Eat in moderation")]
-   good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer")& (merged_subset_answer['outcome'] =="Eat in moderation")]
-   good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker")& (merged_subset_answer['outcome'] =="Eat in moderation")]
-   
-   category =  st.radio("Choose your category of snack", ['cookie','cracker','cream','wafer'])
-   
-   nutri_option = st.radio("Choose the nutrient that you wish to reduce",['fat content','sugar content','sodium content'])
-   
-   if category == 'cookie' and nutri_option == 'fat content':
-       answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'cookie' and nutri_option == 'sugar content':
-       answer = good_cookie_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'cookie' and nutri_option == 'sodium content':
-       answer = good_cookie_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
-       
-   elif category == 'cream' and nutri_option == 'fat content':
-       answer = good_cream_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'cream' and nutri_option == 'sugar content':
-       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'cream' and nutri_option == 'sodium content':
-       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
-       
-   elif category == 'cracker' and nutri_option == 'fat content':
-       answer = good_cracker_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'cracker' and nutri_option == 'sugar content':
-       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'cracker' and nutri_option == 'sodium content':
-       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
-   
-   elif category == 'wafer' and nutri_option == 'fat content':
-       answer = good_wafer_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   elif category == 'wafer' and nutri_option == 'sugar content':
-       answer = good_wafer_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
-   else:
-       answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
-
-   final_answer = answer.drop(['type','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'],axis=1)
-   final_answer.rename(columns = {'product':"Product","outcome":"Recommendation","per_serving_g":"Per Serving (g)","total_fat_g":"Fat (g)","sugars_g":"Sugar (g)","sodium_g":"Sodium (g)"}, inplace=True)
-    
-   button4 = st.button('Find the healthiest snack!',key="button4")
-   
-   if button4:
-       st.write("Here's our recommended snack!")
-       st.dataframe(final_answer)
-
-
-with tab5:
-   st.header("Find healthy snack")
    # Load product data from CSV file
    product_data = pd.read_csv('final_data.csv')
    image_data = pd.read_csv("products-cookies-clean-images.csv")
@@ -283,7 +217,7 @@ with tab5:
 
    pred_df = pd.DataFrame(prediction_array).rename(columns = {0:"class"})
 
-   pred_df['outcome'] = pred_df['class'].replace({0:"Not healthy, refrain from consuming",1:"Eat in moderation"})
+   pred_df['outcome'] = pred_df['class'].replace({0:"Unhealthy snack, please refrain from consuming",1:"Eat in moderation"})
 
 
    merged_subset = pd.merge(complete_data,pred_df,left_index = True, right_index = True)
@@ -295,9 +229,9 @@ with tab5:
    good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    
-   category2 =  st.radio("Choose your snack", ['cookie','cracker','cream','wafer'])
+   category2 =  st.radio("Choose your category of snack:", ['cookie','cracker','cream','wafer'])
    
-   nutri_option2 = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'])
+   nutri_option2 = st.radio("Choose the nutrient that you wish to reduce",['fat content','sugar content','sodium content'])
    
    if category2 == 'cookie' and nutri_option2 == 'fat content':
        answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
@@ -328,9 +262,9 @@ with tab5:
        answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1) 
        
 
-   button5 = st.button('Find the healthiest snack!',key="button5")
+   button4 = st.button('Find the healthiest snack!',key="button4")
    
-   if button5:
+   if button4:
        
        image_list = []
        product_list = []
