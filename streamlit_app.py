@@ -273,7 +273,7 @@ with tab5:
    image_data.rename(columns= {'product':'product_url'},inplace=True)
    final = pd.merge(product_data, image_data,  how='left', left_on=['type','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'], right_on = ['type','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'])
    complete_data = final.drop(['Unnamed: 0'],axis=1)
-   
+   complete_data = complete_data.dropna()
    
    product_X = product_data[['total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']]
    
