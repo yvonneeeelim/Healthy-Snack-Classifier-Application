@@ -256,7 +256,7 @@ with tab4:
        answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
 
    final_answer = answer.drop(['type','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'],axis=1)
-   final_answer.rename(columns = {'product':"Product","outcome":"Recommendation","per_serving_g":"Per Serving (g)","total_fat_g":"Fat (g)","sugars_g":"Sugar (g)","sodium_g":"Sodium (g)"})
+   final_answer.rename(columns = {'product':"Product","outcome":"Recommendation","per_serving_g":"Per Serving (g)","total_fat_g":"Fat (g)","sugars_g":"Sugar (g)","sodium_g":"Sodium (g)"}, inplace=True)
     
    button4 = st.button('Find the healthiest snack!',key="button4")
    
