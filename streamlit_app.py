@@ -273,7 +273,6 @@ with tab5:
    image_data.rename(columns= {'product':'product_url'},inplace=True)
    final = pd.merge(product_data, image_data,  how='left', left_on=['type','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'], right_on = ['type','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'])
    complete_data = final.drop(['Unnamed: 0'],axis=1)
-   complete_data = complete_data.dropna()
    
    product_X = product_data[['total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']]
    
@@ -288,6 +287,7 @@ with tab5:
 
 
    merged_subset = pd.merge(complete_data,pred_df,left_index = True, right_index = True)
+   merged_subset = merged_subset.dropna()
    merged_subset_answer = merged_subset[['type','product','imageLink','outcome','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
 
    good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
