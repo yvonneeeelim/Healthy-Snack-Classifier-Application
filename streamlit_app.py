@@ -344,7 +344,7 @@ with tab5:
            product_name = answer['product'].iloc[i]
            fat_content = answer['total_fat_g'].iloc[i]
            sugar_content = answer['sugars_g'].iloc[i]
-           sodium_content = answer['sodium_g'].ilo[i]
+           sodium_content = answer['sodium_g'].iloc[i]
            serving_content = answer['per_serving_g'].iloc[i]
            
            image_list.append(image_link)
