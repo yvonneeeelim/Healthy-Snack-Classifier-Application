@@ -216,7 +216,7 @@ with tab4:
 
 
    merged_subset = pd.merge(product_data,pred_df,left_index = True, right_index = True)
-   merged_subset_answer = merged_subset[['type','product','outcome','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
+   merged_subset_answer = merged_subset[['type','product','outcome','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
 
    good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_cream_data = merged_subset_answer[(merged_subset_answer['type']=="cream")& (merged_subset_answer['outcome'] =="Eat in moderation")]
@@ -254,10 +254,12 @@ with tab4:
        answer = good_wafer_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
    else:
        answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
-       
 
+   final_answer = answer.drop(['type','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'],axis=1)
+   final_answer.rename(columns = {'product':"Product","outcome":"Recommendation","per_serving_g":"Per Serving (g)","total_fat_g":"Fat (g)","sugars_g":"Sugar (g)","sodium_g":"Sodium (g)"})
+    
    button4 = st.button('Find the healthiest snack!',key="button4")
    
    if button4:
        st.write("Here's our recommended snack!")
-       st.dataframe(answer)
+       st.dataframe(final_answer)
