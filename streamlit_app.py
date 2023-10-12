@@ -351,6 +351,7 @@ with tab5:
            product_list.append(product_name)
            sugar_list.append(sugar_content)
            sodium_list.append(sodium_content)
+           fat_list.append(fat_content)
            serving_list.append(serving_content)
            
        #image_link = answer['imageLink'].iloc[0]
