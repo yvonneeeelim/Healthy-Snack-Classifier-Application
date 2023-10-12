@@ -295,9 +295,9 @@ with tab5:
    good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    
-   category2 =  st.radio("Choose your snack", ['cookie','cracker','cream','wafer'],key=“category2")
+   category2 =  st.radio("Choose your snack", ['cookie','cracker','cream','wafer'])
    
-   nutri_option2 = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'],key=“nutri_option2")
+   nutri_option2 = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'])
    
    if category2 == 'cookie' and nutri_option2 == 'fat content':
        answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
