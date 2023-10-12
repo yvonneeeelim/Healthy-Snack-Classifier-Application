@@ -54,9 +54,9 @@ with tab1:
    st.header("Enter Your Nutrients")
     
    # Get user input for nutrients
-   sugar = float(st.number_input("Enter Sugar (g):", value=1))
-   fats = float(st.number_input("Enter Fats (g):", value=1))
-   sodium = float(st.number_input("Enter Sodium (g):", value=1))
+   sugar = float(st.number_input("Enter Sugar (g):", format="%.3f", value=1))
+   fats = float(st.number_input("Enter Fats (g):", format="%.3f", value=1))
+   sodium = float(st.number_input("Enter Sodium (g):", format="%.3f", value=1))
    serving_size = float(st.number_input("Enter Serving Size (g):", value=1))
 
    # calculate the nutrition value for prediction
@@ -219,7 +219,7 @@ with tab4:
    merged_subset_answer = merged_subset[['type','product','outcome','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
 
    good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
-   good_cream_data = merged_subset_answer[merged_subset_answer['type']=="cream"& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_cream_data = merged_subset_answer[(merged_subset_answer['type']=="cream")& (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_wafer_data = merged_subset_answer[merged_subset_answer['type']=="wafer"& (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_cracker_data = merged_subset_answer[merged_subset_answer['type']=="cracker"& (merged_subset_answer['outcome'] =="Eat in moderation")]
    
