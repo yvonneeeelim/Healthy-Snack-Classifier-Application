@@ -220,8 +220,8 @@ with tab4:
 
    good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_cream_data = merged_subset_answer[(merged_subset_answer['type']=="cream")& (merged_subset_answer['outcome'] =="Eat in moderation")]
-   good_wafer_data = merged_subset_answer[merged_subset_answer['type']=="wafer"& (merged_subset_answer['outcome'] =="Eat in moderation")]
-   good_cracker_data = merged_subset_answer[merged_subset_answer['type']=="cracker"& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer")& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker")& (merged_subset_answer['outcome'] =="Eat in moderation")]
    
    category =  st.radio("Choose your category of snack", ['cookie','cracker','cream','wafer'])
    
