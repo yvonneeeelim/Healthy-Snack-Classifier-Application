@@ -303,21 +303,22 @@ with tab4:
        col1, col2, col3 = st.columns(3, gap="medium")
        with col1:
             st.image(image_list[0], caption=product_list[0],width = 150, use_column_width="always")
-            st.write("The serving size is ", serving_list[0], " g")
+            st.write(“For serving size of “, serving_list[0], ” g:“)
             st.write("The fat content is ", fat_list[0], " g")
             st.write("The sugar content is ",sugar_list[0]," g")
             st.write("The sodium content is ", sodium_list[0], " g")
+           
 
        with col2:
             st.image(image_list[1], caption=product_list[1],width = 150, use_column_width="always")
-            st.write("The serving size is ", serving_list[1], " g")
+            st.write(“For serving size of “, serving_list[0], ” g:“)
             st.write("The fat content is ", fat_list[1], " g")
             st.write("The sugar content is ",sugar_list[1]," g")
             st.write("The sodium content is ", sodium_list[1], " g")
 
        with col3:
             st.image(image_list[2], caption=product_list[2],width = 150, use_column_width="always")
-            st.write("The serving size is ", serving_list[2], " g")
+            st.write(“For serving size of “, serving_list[0], ” g:“)
             st.write("The fat content is ", fat_list[2], " g")
             st.write("The sugar content is ",sugar_list[2]," g")
             st.write("The sodium content is ", sodium_list[2], " g")
