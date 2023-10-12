@@ -357,7 +357,7 @@ with tab5:
        #product_name = answer['product'].iloc[0]
        #fat_content = answer['total_fat_g'].iloc[0]
        #sugar_content = answer['sugars_g'].iloc[0]
-       #sodium_content = answer['sodium_g'].ilo[0]
+       #sodium_content = answer['sodium_g'].iloc[0]
        #serving_content = answer['per_serving_g'].iloc[0]
        
        
