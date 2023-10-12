@@ -212,16 +212,16 @@ with tab4:
 
    pred_df = pd.DataFrame(prediction_array).rename(columns = {0:"class"})
 
-   pred_df['outcome'] = pred_df['class'].replace({0:":thumbsdown: Unhealthy snack, please refrain from consuming",1:":thumbsup: Eat in moderation"})
+   pred_df['outcome'] = pred_df['class'].replace({0:"Unhealthy snack, please refrain from consuming",1:"Eat in moderation"})
 
 
    merged_subset = pd.merge(product_data,pred_df,left_index = True, right_index = True)
    merged_subset_answer = merged_subset[['type','product','outcome','per_serving_g','total_fat_g','sugars_g','sodium_g','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving']].sort_values('outcome')
 
-   good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] ==":thumbsup: Eat in moderation")]
-   good_cream_data = merged_subset_answer[(merged_subset_answer['type']=="cream")& (merged_subset_answer['outcome'] ==":thumbsup: Eat in moderation")]
-   good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer")& (merged_subset_answer['outcome'] ==":thumbsup: Eat in moderation")]
-   good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker")& (merged_subset_answer['outcome'] ==":thumbsup: Eat in moderation")]
+   good_cookie_data = merged_subset_answer[(merged_subset_answer['type']=="cookie") & (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_cream_data = merged_subset_answer[(merged_subset_answer['type']=="cream")& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer")& (merged_subset_answer['outcome'] =="Eat in moderation")]
+   good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker")& (merged_subset_answer['outcome'] =="Eat in moderation")]
    
    category =  st.radio("Choose your category of snack", ['cookie','cracker','cream','wafer'])
    
