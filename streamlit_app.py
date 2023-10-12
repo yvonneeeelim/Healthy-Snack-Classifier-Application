@@ -295,34 +295,34 @@ with tab5:
    good_wafer_data = merged_subset_answer[(merged_subset_answer['type']=="wafer") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    good_cracker_data = merged_subset_answer[(merged_subset_answer['type']=="cracker") & (merged_subset_answer['outcome'] =="Eat in moderation")]
    
-   category =  st.radio("Choose your category of snack", ['cookie','cracker','cream','wafer'])
+   category2 =  st.radio("Choose your snack", ['cookie','cracker','cream','wafer'],key=“category2")
    
-   nutri_option = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'])
+   nutri_option2 = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'],key=“nutri_option2")
    
-   if category == 'cookie' and nutri_option == 'fat content':
+   if category2 == 'cookie' and nutri_option2 == 'fat content':
        answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'cookie' and nutri_option == 'sugar content':
+   elif category2 == 'cookie' and nutri_option2 == 'sugar content':
        answer = good_cookie_data.sort_values('sugars_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'cookie' and nutri_option == 'sodium content':
+   elif category2 == 'cookie' and nutri_option2 == 'sodium content':
        answer = good_cookie_data.sort_values('sodium_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1) 
        
-   elif category == 'cream' and nutri_option == 'fat content':
+   elif category2 == 'cream' and nutri_option2 == 'fat content':
        answer = good_cream_data.sort_values('total_fat_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'cream' and nutri_option == 'sugar content':
+   elif category2 == 'cream' and nutri_option2 == 'sugar content':
        answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'cream' and nutri_option == 'sodium content':
+   elif category2 == 'cream' and nutri_option2 == 'sodium content':
        answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1) 
        
-   elif category == 'cracker' and nutri_option == 'fat content':
+   elif category2 == 'cracker' and nutri_option2 == 'fat content':
        answer = good_cracker_data.sort_values('total_fat_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'cracker' and nutri_option == 'sugar content':
+   elif category2 == 'cracker' and nutri_option2 == 'sugar content':
        answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'cracker' and nutri_option == 'sodium content':
+   elif category2 == 'cracker' and nutri_option2 == 'sodium content':
        answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1) 
    
-   elif category == 'wafer' and nutri_option == 'fat content':
+   elif category2 == 'wafer' and nutri_option2 == 'fat content':
        answer = good_wafer_data.sort_values('total_fat_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
-   elif category == 'wafer' and nutri_option == 'sugar content':
+   elif category2 == 'wafer' and nutri_option2 == 'sugar content':
        answer = good_wafer_data.sort_values('sugars_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1)
    else:
        answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(3).reset_index().drop(['index'],axis=1) 
