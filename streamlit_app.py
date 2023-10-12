@@ -47,7 +47,7 @@ st.markdown('<p class="subheader">Snack & Stay Healthy! Look up your snack, unco
 st.divider()
 
 st.markdown("**Choose from below options:**")
-tab1, tab2, tab3, tab4 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords", "Find healthy snack"])
+tab1, tab2, tab3, tab4 = st.tabs(["Enter Your Nutrients", "Upload an image", "Search Keywords", "Find Healthy Snack"])
 # Add a short liner above the tabs
 
 with tab1:
@@ -199,7 +199,7 @@ with tab3:
                st.write("Thank you for your patience, it appears that we do not have the relevant snack that you have queried!")
       
 with tab4:
-   st.header("Find healthy snack")
+   st.header("Find Healthy Snack")
    # Load product data from CSV file
    product_data = pd.read_csv('final_data.csv')
    
