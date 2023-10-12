@@ -228,32 +228,32 @@ with tab4:
    nutri_option = st.radio("Choose the nutrient that matters most to you",['fat content','sugar content','sodium content'])
    
    if category == 'cookie' and nutri_option == 'fat content':
-       answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_cookie_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'cookie' and nutri_option == 'sugar content':
-       answer = good_cookie_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_cookie_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'cookie' and nutri_option == 'sodium content':
-       answer = good_cookie_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       answer = good_cookie_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
        
    elif category == 'cream' and nutri_option == 'fat content':
-       answer = good_cream_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_cream_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'cream' and nutri_option == 'sugar content':
-       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'cream' and nutri_option == 'sodium content':
-       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
        
    elif category == 'cracker' and nutri_option == 'fat content':
-       answer = good_cracker_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_cracker_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'cracker' and nutri_option == 'sugar content':
-       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_cracker_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'cracker' and nutri_option == 'sodium content':
-       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       answer = good_cracker_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
    
    elif category == 'wafer' and nutri_option == 'fat content':
-       answer = good_wafer_data.sort_values('total_fat_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_wafer_data.sort_values('total_fat_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    elif category == 'wafer' and nutri_option == 'sugar content':
-       answer = good_wafer_data.sort_values('sugars_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1)
+       answer = good_wafer_data.sort_values('sugars_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1)
    else:
-       answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(1).reset_index().drop(['index'],axis=1) 
+       answer = good_wafer_data.sort_values('sodium_g_per_gram_of_serving').head(5).reset_index().drop(['index'],axis=1) 
 
    final_answer = answer.drop(['type','total_fat_g_per_gram_of_serving','sugars_g_per_gram_of_serving','sodium_g_per_gram_of_serving'],axis=1)
    final_answer.rename(columns = {'product':"Product","outcome":"Recommendation","per_serving_g":"Per Serving (g)","total_fat_g":"Fat (g)","sugars_g":"Sugar (g)","sodium_g":"Sodium (g)"})
